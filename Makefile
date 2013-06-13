@@ -5,7 +5,7 @@ Target = 02.Quake3Map
 Sources = *.cpp Core/*.cpp
 
 # general compiler settings
-CPPFLAGS = -I../../include -I/usr/X11R6/include
+CPPFLAGS = -I../irrlicht-1.8/include -I/usr/X11R6/include -I ../irrlicht-1.8/lib/Linux
 CXXFLAGS = -O3 -ffast-math
 #CXXFLAGS = -g -Wall
 
@@ -32,7 +32,7 @@ all_linux all_win32 static_win32:
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) $(Sources) -o ./Cwarto.exe $(LDFLAGS)
 
 clean: clean_linux clean_win32
-	$(warning Cleaning...)
+    $(warning Cleaning...)
 
 clean_linux clean_win32:
 	@$(RM) $(DESTPATH)

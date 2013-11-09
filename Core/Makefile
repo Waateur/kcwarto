@@ -1,36 +1,67 @@
-all: quarto
+############################################################################
+#	MakeFile fort Compiling The Kcwarto Core And LibKcwarto
+#
+############################################################################
+# Make Lib
+###########################################################################
+#	Compiling  Variables 
+##########################################################################
+#CPPFLAGS args for preprocesser
+#CXXFLAGS args for compiler C++
+##############################
+#	Compiler
+##############################
+# CXX = g++
+CXX = clang++
 
-quarto: main.o jeu.o menu.o minmax.o plateau.o pioche.o coup.o kase.o pion.o
-        g++ -o quarto *.o
+############################
+#	Flags
+###########################
 
-main.o : main.cpp Jeu.h Menu.h
-        g++ -o main.o -c main.cpp -W -Wall
+# DEBUG 
+CXXFLAGS = -O0 -g -Weverything -Werror
+# FAST
+# CXXFLAGS = -O2
+# XtraFAST
+# CXXFLAGS = -Ofast
 
-jeu.o : Jeu.cpp Plateau.h Pioche.h MinMax.h
-        g++ -o jeu.o -c Jeu.cpp -W -Wall
 
-menu.o : Menu.cpp
-        g++ -o menu.o -c Menu.cpp -W -Wall
+all	:	console
 
-minmax.o : MinMax.cpp Plateau.h Pioche.h Coup.h
-        g++ -o minmax.o -c MinMax.cpp -W -Wall
+console	:	quarto
 
-plateau.o : Plateau.cpp Kase.h
-        g++ -o plateau.o -c Plateau.cpp -W -Wall
+quarto	:	main.o jeu.o menu.o minmax.o plateau.o pioche.o coup.o kase.o pion.o
+	clang++ -o quarto *.o
 
-pioche.o : Pioche.cpp Pion.h
-        g++ -o pioche.o -c Pioche.cpp -W -Wall
+main.o	: main.cxx Jeu.h Menu.h
+	clang++ -o main.o -c main.cxx
 
-coup.o : Coup.cpp Pion.h
-        g++ -o coup.o -c Coup.cpp -W -Wall
+jeu.o	: Jeu.cpp Plateau.h Pioche.h MinMax.h
+	clang++ -o jeu.o -c Jeu.cpp
 
-kase.o : Kase.cpp
-        g++ -o kase.o -c Kase.cpp -W -Wall
+menu.o	: Menu.cpp
+	clang++ -o menu.o -c Menu.cpp
 
-pion.o : Pion.cpp
-        g++ -o pion.o -c Pion.cpp -W -Wall
+minmax.o	: MinMax.cpp Plateau.h Pioche.h Coup.h
+	clang++ -o minmax.o -c MinMax.cpp
 
-clean : rm -rf *.o
+plateau.o	: Plateau.cpp Kase.h
+	clang++ -o plateau.o -c Plateau.cpp
 
-mrproper: clean
-        rm -rf quarto
+pioche.o	: Pioche.cpp Pion.h
+	clang++ -o pioche.o -c Pioche.cpp
+
+coup.o	: Coup.cpp Pion.h
+	clang++ -o coup.o -c Coup.cpp
+
+kase.o	: Kase.cpp
+	clang++ -o kase.o -c Kase.cpp
+
+pion.o	: Pion.cpp
+	clang++ -o pion.o -c Pion.cpp
+
+clean	: 
+	rm -rf *.o
+
+mrproper:	clean
+	rm -rf quarto

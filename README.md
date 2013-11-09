@@ -1,6 +1,33 @@
-#Quarto
+#kcwarto
+
+## Brief ##
+Ce dépots permets de compiler la libkcwarto ainsi que le client console.
+Pour l'instant ça compile sous  Linux et sous Mac. windows sera supporter plus tard.
+## Libkcwarto ##
+Cette library simple Comprend l'API basique de manipulation d'une partie. 
+- Creer une partie 
+- Executer un tour de jeu 
+- Faire un tour de jeu avec l'algorithme min max ( l'ordi joue )
+- Afficher en console l'etat de la partie
+la librarie n'a pour l'instant aucune dépendance.
+
+¿¿¿
+make libkcwarto.a
+
+¿¿¿
+
+## le client console kcwarto ##
+Un client console qui permet de faire une partie complete à deux joueur en local ou contre l'ordinateur.
+Le client n'a pour l'instant aucune dépendences.
+Pour compiler le client console
+¿¿¿
+
+make console
+
+¿¿¿
+
 ## les règles de jeu : ##
- Le quarto se présente comme un jeu de plateau, constitué de 16 cases et 	de 16 pions. Chaque pion est carractérisé par quatre caractéristiques : 
+ Le quarto se présente comme un jeu de plateau, constitué de 16 cases et de 16 pions. Chaque pion est carractérisé par quatre caractéristiques : 
 -sa taille (grand ou petit)
 -sa forme (rond ou carré)
 -sa couleur (blanc ou noir)
@@ -15,28 +42,4 @@ le but du jeu est d'arriver à faire un alignement gagnant, c'est à dire à allign
 - le joueur qui commence choisi un pion dans la pioche, qu'il donne à son adversaire.
 -l'adversaire pose alors ce pion sur le plateau et choisi à son tour un pion dans la pioche pour son adversaire.
 -le jeu se poursuit ainsi jusqu'a ce qu'un des deux joueurs arrive à faire un alignement gagnant ou que tous les pions soient placés sur le plateau
-
-#Pour compiler :
-		
-1. Lancez le fichier cwarto-linux.cbp ou cwarto-windows.cbp avec Code::blocks
--Verfifez les parametres du linker qui dépendent de la machine 
--et compilez puis executez.
--le fichier excutable sera crée dans le dossier du projet.
-		
-2.Utiliser le makefile qui va creer un executable dans le dossier du projet ( dependance irrlicht )
-# Le jeu 
-##Le menu:##
-
--choisir un mode d'affichage avec la scrollBar du haut : fenêtre ou plein écran	
--vous pouvez choisir entre trois niveaux de difficultés pour le mode jeu contre ordinateur, celà à l'aide de la scrollBar LEVEL
--Selectionner le mode de jeu voulu à l'aide des boutons du bas : CPU pour lancer le mode joueur contre ordinateur (c'est le joueur qui 	commence), ou VS pour lancer le mode deux joueurs (c'est le joueur1 qui 	commence la partie). Là le jeu se lance.
--Le bouton QUIT permet de quitter le jeu
-
-# jouer :
-
-- Pour déplacer le halo bleuté dans la pioche ou le plateau, utilisez les touches Z, Q, S, et D pour haut, gauche, bas et droite.
-- Pour selectionner un pion dans la pioche ou une case sur le plateau, appuyez sur la barre d'espace.
-- Suivez les instructions à l'écran pour l'alternance joueur1/joueur2.
-- Vous pouvez faire pivoter le plateau pour une meilleur visibilité durant la phase de jeu. Pour celà utilisez les touches A ou E pour faire pivoter vers la gauche ou la droite. Le plateau se repositionnera en position initiale en appuyantsur la touche R.
-
 

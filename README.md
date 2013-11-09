@@ -11,7 +11,7 @@ Cette library simple Comprend l'API basique de manipulation d'une partie.
 - Afficher en console l'etat de la partie
 la librarie n'a pour l'instant aucune dépendance.
 
-````make
+````sh
 make libkcwarto.a
 
 ```
@@ -20,7 +20,7 @@ make libkcwarto.a
 Un client console qui permet de faire une partie complete à deux joueur en local ou contre l'ordinateur.
 Le client n'a pour l'instant aucune dépendences.
 Pour compiler le client console
-````make
+````sh
 
 make console
 

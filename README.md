@@ -11,20 +11,20 @@ Cette library simple Comprend l'API basique de manipulation d'une partie.
 - Afficher en console l'etat de la partie
 la librarie n'a pour l'instant aucune dépendance.
 
-¿¿¿
+````make
 make libkcwarto.a
 
-¿¿¿
+```
 
 ## le client console kcwarto ##
 Un client console qui permet de faire une partie complete à deux joueur en local ou contre l'ordinateur.
 Le client n'a pour l'instant aucune dépendences.
 Pour compiler le client console
-¿¿¿
+````make
 
 make console
 
-¿¿¿
+```
 
 ## les règles de jeu : ##
  Le quarto se présente comme un jeu de plateau, constitué de 16 cases et de 16 pions. Chaque pion est carractérisé par quatre caractéristiques : 

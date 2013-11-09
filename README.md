@@ -12,8 +12,8 @@ Cette library simple Comprend l'API basique de manipulation d'une partie.
 la librarie n'a pour l'instant aucune dépendance.
 
 ````sh
-make libkcwarto.a
 
+make libkcwarto.a
 ```
 
 ## le client console kcwarto ##
@@ -23,7 +23,6 @@ Pour compiler le client console
 ````sh
 
 make console
-
 ```
 
 ## les règles de jeu : ##

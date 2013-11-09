@@ -25,18 +25,21 @@ CXX = clang++
 # XtraFAST
  CXXFLAGS = -Ofast
 
-
-all	:	libkcwarto.a console
-
+# Compile tout 
+all	:	libkcwarto.a libkcwarto.so console
+# Compile le binaire
 console	:	libkcwarto.a  main.o
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o quarto main.o libkcwarto.a
-
 main.o	: main.cxx Jeu.h Menu.h
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o main.o -c main.cxx
-
+#Compile les Libraries
 libkcwarto.a	: jeu.o menu.o minmax.o plateau.o pioche.o coup.o kase.o pion.o
 	ar rcs libkcwarto.a *.o
 
+libkcwarto.so	: jeu.o menu.o minmax.o plateau.o pioche.o coup.o kase.o pion.o
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o libkcwarto.so -shared -fPIC pion.o kase.o coup.o pioche.o plateau.o  minmax.o menu.o jeu.o
+
+#Compile les .o
 jeu.o	: Jeu.cpp Plateau.h Pioche.h MinMax.h
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o jeu.o -c Jeu.cpp
 
@@ -62,7 +65,7 @@ pion.o	: Pion.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o pion.o -c Pion.cpp
 
 clean	: 
-	rm -rf *.o *.a
+	rm -rf *.o *.a *.so
 
 mrproper:	clean
 	rm -rf quarto
